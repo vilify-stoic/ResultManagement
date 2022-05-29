@@ -1,0 +1,37 @@
+<a routerLink="../option" class="btn btn-info" style="margin-top: 5px;">Back</a>
+
+<h4>All Students</h4>
+
+<div class="tablediv">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Roll No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Score</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="head" *ngFor="let stu of students">
+                
+                <td>{{ stu.roll }}</td>
+                <td>{{ stu.name }}</td>
+                <td>{{ stu.dob }}</td>
+                <td>{{ stu.score }}</td>
+                <td>
+                 <a [routerLink]="['/teacher/edit/' + stu._id]" class="btn btn-primary">Edit</a> 
+                 <a (click)="deleteUser(stu._id)" class="btn btn-danger">Delete</a> 
+                 
+                <!-- <a  routerLink="/teacher/edit/{{stu._id}}" class="btn btn-primary">Edit</a> -->
+                <!-- <a routerLink="`../../edit/${student.id}`" class="btn btn-primary">Edit</a>  -->
+                <!-- <a [routerLink]="['../delete/' + student.id]" class="btn btn-danger">Delete</a>
+                 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<router-outlet></router-outlet>

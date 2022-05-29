@@ -1,0 +1,20 @@
+<a (click)="onBack()" class="btn btn-info" style="margin-top:5px;">Back</a>
+<p class="text-danger">{{message}}</p>
+<h3>Teacher Login</h3>
+
+<div class="loginpage">
+    <form #loginForm="ngForm" class="teachForm">
+        <div class="mb-3">
+            <label for="password" class="form-label">Password : </label>
+            <input required #password1="ngModel" type="password" name="password" class="form-control" id="pass" [(ngModel)]="password" >
+            <div  *ngIf="password1.invalid" style="color: red;">Password is required</div>
+            <br>
+        </div>
+        <a><button [disabled]="loginForm.invalid" type="submit" class="btn btncolor btn-primary"
+            (click)="onTeacherLogin()"
+             >Submit</button></a>
+    </form>
+</div>
+
+
+<router-outlet></router-outlet>
